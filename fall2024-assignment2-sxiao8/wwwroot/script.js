@@ -37,7 +37,6 @@ function randomStringGenerator() {
 }
 
 function apiSearch(lucky) {
-    $('#searchResults').css("visibility", "visible");
     var params;
     var string;
 
@@ -52,7 +51,6 @@ function apiSearch(lucky) {
 
     else {
         string = randomStringGenerator();
-        console.log(string);
         params = {
             'q': string + ' seven eleven',
             'count': 50,
@@ -60,30 +58,40 @@ function apiSearch(lucky) {
             'mkt': 'en-us'
         };
     }
-    console.log('https://api.bing.microsoft.com/v7.0/search?' + $.param(params));
 
     $.ajax({
         url: 'https://api.bing.microsoft.com/v7.0/search?' + $.param(params),
         type: 'GET',
         headers: {
-            'Ocp-Apim-Subscription-Key': '--'
+            'Ocp-Apim-Subscription-Key': '14109db116ba4840a23e599f8978ebf3'
         }
     })
         .done(function (data) {
             var len = data.webPages.value.length;
             var results = '';
+            var luckyURL = '';
+            var checkInt = Math.floor(Math.random() * (20 - 10 + 1) + 10);
+
             for (i = 0; i < len; i++) {
                 results += `<p><a href="${data.webPages.value[i].url}">${data.webPages.value[i].name}</a>: ${data.webPages.value[i].snippet}</p>`;
+                if (i == checkInt) {
+                    luckyURL = data.webPages.value[i].url;
+                }
             }
 
-            $('#searchResults').html(results);
-            //$('searchResults').dialog(
-            //    position: {
-            //    at: "right",
-            //}
-            //);
+            if (lucky == true) {
+                window.open(luckyURL);
+            }
+            else {
+                $('#searchResults').css("visibility", "visible");
+                $('#searchResults').html(results);
+            }
         })
         .fail(function () {
             alert('error');
         });
+}
+
+function hideSearchResults() {
+    $('#searchResults').css('visibility', 'hidden');
 }

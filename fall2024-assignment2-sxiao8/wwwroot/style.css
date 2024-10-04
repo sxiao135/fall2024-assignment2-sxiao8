@@ -21,7 +21,7 @@ button {
     color: white;
     font-family: '7-ELEVEN', sans-serif;
     border-width: 2px;
-    background-color: transparent;
+    background-color: rgb(0, 0, 0, 0.48);
     padding: 3px 5px;
     padding-top: 5px;
     margin: 3px;
@@ -60,11 +60,20 @@ body {
 #bkgButton {
     grid-column: 2/3;
     grid-row: 1/2;
-    
 }
 #bkgButton button {
-    position: relative;
-    float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+#hideButton {
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+#hideButton button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 #query{
     margin: 10px;
@@ -94,3 +103,24 @@ body {
     background-color: rgb(255, 255, 255, .8);
     padding: 10px;
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #cacaca;
+        border-radius: 10px;
+    }
