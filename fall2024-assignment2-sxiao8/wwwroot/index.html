@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body id="body" class="bg1">
+    <div id="bkgButton"><button onclick="changeBkg()">I want a different 7-Eleven</button></div>
+    <script type="text/javascript" src="./script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha384-1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5xXxAvs/HgeFs" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.14.0/jquery-ui.min.js" integrity="sha384-8EM386r8XMMzwGPUxfGNr6c1wIOYnPQBJ6VFxzKCZeklpQarHoZGB40kdNDA3gYr" crossorigin="anonymous"></script>
+    <div class="search">
+        <p>SEARCH ENGINE</p>
+        <input id="query" />
+        <div class="buttons">
+            <button onclick="apiSearch(false)">search</button>
+            <button onclick="getTime()">time</button>
+            <button onclick="apiSearch(true)">I'm Feeling Lucky</button>
+        </div>
+    </div>
+    <div id="searchResults"></div>
+    <div id="time"></div>
+</body>
+
+</html>
